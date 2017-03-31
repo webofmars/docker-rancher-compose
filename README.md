@@ -1,1 +1,1 @@
-# Ubuntu images with rancher-compose included
+# Alpine images with rancher-compose included

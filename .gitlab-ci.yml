@@ -1,0 +1,19 @@
+image: docker:git
+
+variables:
+  IMAGE_NAME: $CI_REGISTRY_IMAGE
+  DOCKER_DRIVER: overlay
+
+services:
+  - docker:dind
+
+stages:
+  - build
+
+build_job:
+  stage: build
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - ./generator.sh
+  only:
+    - master
