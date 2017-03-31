@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 VERSIONS=("0.8.6", "0.12.4")
 

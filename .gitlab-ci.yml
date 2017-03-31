@@ -13,7 +13,8 @@ stages:
 build_job:
   stage: build
   script:
+    - apk add --update bash
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
-    - sh generator.sh
+    - bash generator.sh
   only:
     - master
