@@ -1,9 +1,6 @@
 #!/bin/bash
 
-VERSIONS=("0.8.6" "0.12.4")
-
-for VERSION in "${VERSIONS[@]}"
-do
+while read VERSION; do
   docker build --pull -t $IMAGE_NAME:$VERSION --build-arg RANCHER_COMPOSE_VERSION=$VERSION .
   docker push $IMAGE_NAME:$VERSION
-done
+done < <(git ls-remote https://github.com/rancher/rancher-compose.git | grep -o 'refs/tags/v.*' | sed 's:refs/tags/v::' | sort -Vr)
