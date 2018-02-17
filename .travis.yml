@@ -1,7 +1,7 @@
 sudo: required
 
 env:
-  - IMAGE_NAME="identt/rancher-compose"
+  - IMAGE_NAME="webofmars/rancher-compose"
 
 services:
   - docker
